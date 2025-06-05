@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cadastro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/tela_cadastrar.css">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script> emailjs.init('gcZlxi9JPpk7ig0RS')</script>
+    </head>
+
+<body>
+    <div class="main-container">
+        <header class="header">
+            <div class="logo">
+                <h1 style="font-weight: bold;"><img src="assets/img/logo.png" alt="Logo Empresa" width="80px"
+                        height="80px">MAICOSOFT > <span>CADASTRO</span></h1>
+            </div>
+            <div class="header-actions">
+                <button class="header-btn btn-list" id="voltarBtn"><i class="bi bi-arrow-left"></i>Voltar</button>
+            </div>
+        </header>
+
+        <div class="container">
+            <form id="registrationForm">
+                <div class="form-section">
+                    <h4 style="color: #0057b8; font-weight: bold; padding-bottom: 20px;">DADOS COMERCIAIS</h4>
+                    <div class="row g-3 mb-3">
+                        <div class="col-6 col-md-2">
+                            <label for="codigo" class="form-label required">Código</label>
+                            <input type="text" id="codigo" name="codigo" class="form-control"
+                                placeholder="Digite o código" maxlength="5" required>
+                            <div class="invalid-feedback">Por favor, informe o código.</div>
+                        </div>
+
+                        <div class="col-6 col-md-2">
+                            <label class="form-label required">Fisica/Juridica</label>
+                            <div class="radio-toggle">
+                                <input type="radio" id="fisica" name="fisicaJurid" value="F" checked required>
+                                <label for="fisica">Física</label>
+                                <input type="radio" id="juridica" name="fisicaJurid" value="J" required>
+                                <label for="juridica">Jurídica</label>
+                            </div>
+                            <input type="hidden" id="fisicaJuridHidden" name="fisicaJuridHidden" value="F">
+                            <div class="invalid-feedback">Selecione o tipo.</div>
+                        </div>
+
+                        <div class="col-6 col-md-2" id="tipoContainer">
+                            <label for="tipo" class="form-label required">Tipo</label>
+                            <select id="tipo" name="tipo" class="form-select">
+                                <option value="">Selecione um Tipo</option>
+                                <option value="F">F - Consumidor Final</option>
+                                <option value="L">L - Produtor Rural</option>
+                                <option value="R">R - Revendedor</option>
+                                <option value="S">S - Solidário</option>
+                                <option value="X">X - Exportação</option>
+                            </select>
+                            <div class="invalid-feedback">Selecione um tipo.</div>
+                        </div>
+
+                        <div class="col-6 col-md-6" id="cnpjcpfContainer">
+                            <label for="cnpjcpf" class="form-label required">CNPJ/CPF</label>
+                            <input type="text" id="cnpjcpf" name="cnpjcpf" class="form-control"
+                                placeholder="Digite o CNPJ ou CPF" required>
+                            <div class="invalid-feedback">CNPJ/CPF inválido ou obrigatório.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="row g-3 mb-3" style="padding-top: 20px;">
+                        <div class="col-12 col-md-5">
+                            <label for="nome" class="form-label required">Nome</label>
+                            <input type="text" id="nome" name="nome" class="form-control"
+                                placeholder="Digite seu nome aqui" maxlength="100" required>
+                            <div class="invalid-feedback">Por favor, informe o nome.</div>
+                        </div>
+
+                        <div class="col-6 col-md-3">
+                            <label for="nFantasia" class="form-label required">Nome Fantasia</label>
+                            <input type="text" id="nFantasia" name="nFantasia" class="form-control"
+                                placeholder="Nome Fantasia" maxlength="100" required>
+                            <div class="invalid-feedback">Por favor, informe o nome fantasia.</div>
+                        </div>
+
+                        <div class="col-6 col-md-2">
+                            <label for="unidade" class="form-label required">Unidade (Loja)</label>
+                            <input type="text" id="unidade" name="unidade" class="form-control"
+                                placeholder="Código da Loja" maxlength="2" required>
+                            <div class="invalid-feedback">Por favor, informe a unidade.</div>
+                        </div>
+
+                        <div class="col-12 col-md-2">
+                            <label for="dtAberInest" class="form-label required">Data Nasc./Abertura</label>
+                            <input type="text" id="dtAberInest" name="dtAberInest" class="form-control"
+                                placeholder="DD/MM/AAAA" required>
+                            <div class="invalid-feedback">Por favor, informe a data (DD/MM/AAAA).</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4 style="color: #0057b8; font-weight: bold; padding-bottom: 10px; padding-top: 10px;">ENDEREÇO</h4>
+                    <div class="row g-3">
+                        <div class="col-6 col-md-2">
+                            <label for="cep" class="form-label required">CEP</label>
+                            <input type="text" id="cep" name="cep" class="form-control" placeholder="00000-000" required>
+                            <div class="invalid-feedback">CEP inválido ou obrigatório.</div>
+                        </div>
+
+                        <div class="col-12 col-md-5">
+                            <label for="endereco" class="form-label required">Endereço</label>
+                            <input type="text" id="endereco" name="endereco" class="form-control"
+                                placeholder="Rua, complemento" maxlength="100" required>
+                            <div class="invalid-feedback">Por favor, informe o endereço.</div>
+                        </div>
+
+                        <div class="col-6 col-md-2">
+                            <label for="numero" class="form-label">Número</label>
+                            <input type="text" id="numero" name="numero" class="form-control" placeholder="Nº" maxlength="10">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-12 col-md-3">
+                            <label for="bairro" class="form-label">Bairro</label>
+                            <input type="text" id="bairro" name="bairro" class="form-control"
+                                placeholder="Nome do bairro">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-3" style=" padding-top: 20px;">
+                        <div class="col-6 col-md-3">
+                            <label for="cdMunicipio" class="form-label">Código Município</label>
+                             <input type="text" id="cdMunicipio" name="cdMunicipio" class="form-control" placeholder="Código do município">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-6 col-md-3">
+                            <label for="municipio" class="form-label required">Município</label>
+                            <input type="text" id="municipio" name="municipio" class="form-control"
+                                placeholder="Nome da cidade" required>
+                            <div class="invalid-feedback">Por favor, informe o município.</div>
+                        </div>
+
+                        <div class="col-6 col-md-3">
+                            <label for="estado" class="form-label required">Estado</label>
+                            <select id="estado" name="estado" class="form-select" required>
+                                <option value="">Selecione</option>
+                                <option value="AC">AC</option><option value="AL">AL</option><option value="AP">AP</option><option value="AM">AM</option>
+                                <option value="BA">BA</option><option value="CE">CE</option><option value="DF">DF</option><option value="ES">ES</option>
+                                <option value="GO">GO</option><option value="MA">MA</option><option value="MT">MT</option><option value="MS">MS</option>
+                                <option value="MG">MG</option><option value="PA">PA</option><option value="PB">PB</option><option value="PR">PR</option>
+                                <option value="PE">PE</option><option value="PI">PI</option><option value="RJ">RJ</option><option value="RN">RN</option>
+                                <option value="RS">RS</option><option value="RO">RO</option><option value="RR">RR</option><option value="SC">SC</option>
+                                <option value="SP">SP</option><option value="SE">SE</option><option value="TO">TO</option>
+                            </select>
+                            <div class="invalid-feedback">Por favor, selecione o estado.</div>
+                        </div>
+
+                        <div class="col-6 col-md-3">
+                            <label for="pais" class="form-label">País</label>
+                            <input type="text" id="pais" name="pais" class="form-control" placeholder="Nome do país" value="Brasil">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                     <h4 style="color: #0057b8; font-weight: bold; padding-top: 10px;">CONTATO</h4>
+                    <div class="row g-3">
+                        <div class="col-12 col-md-4">
+                            <label for="telefone" class="form-label">Telefone</label>
+                            <input type="text" id="telefone" name="telefone" class="form-control" placeholder="(00) 00000-0000">
+                            <div class="invalid-feedback">Telefone inválido.</div>
+                        </div>
+
+                        <div class="col-12 col-md-4">
+                            <label for="email" class="form-label">E-Mail</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="exemplo@email.com">
+                            <div class="invalid-feedback">E-mail inválido.</div>
+                        </div>
+
+                        <div class="col-12 col-md-4">
+                            <label for="homePage" class="form-label">Website</label>
+                            <input type="text" id="homePage" name="homePage" class="form-control" placeholder="www.exemplo.com.br">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-danger" id="cancelFormBtn">
+                        <i class="bi bi-x-circle"></i> Limpar
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        <i class="bi bi-check-circle"></i> Cadastrar
+                    </button>
+                    </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="snackbar"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/tela_cadastrar.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const submitBtn = document.getElementById('submitBtn');
+    
+            function showSnackbar(message, type = 'error') {
+                const snackbar = document.getElementById('snackbar');
+                if (!snackbar) return;
+                snackbar.className = "show";
+                snackbar.classList.remove('success', 'error', 'info');
+                snackbar.classList.add(type);
+                const icon = type === 'success' ? '<i class="bi bi-check-circle-fill"></i> ' :
+                    type === 'info' ? '<i class="bi bi-info-circle-fill"></i> ' :
+                        '<i class="bi bi-exclamation-triangle-fill"></i> ';
+                snackbar.innerHTML = icon + message;
+                setTimeout(function () {
+                    snackbar.className = snackbar.className.replace("show", "");
+                }, 3000);
+            }
+    
+            function resetForm() {
+                const form = document.getElementById('registrationForm');
+                if(form) form.reset();
+            }
+    
+            function sendEmailViaEmailJS() {
+                const SERVICE_ID = 'job_labEngSoftware2025';
+                const TEMPLATE_ID = 'template_2lde27g';
+    
+                const recipientEmail = sessionStorage.getItem('email');
+    
+                if (!recipientEmail) {
+                    showSnackbar('Erro: E-mail do destinatário não encontrado na sessão.', 'error');
+                    return;
+                }
+    
+                const templateParams = {
+                    to_email: recipientEmail,
+                    codigo: document.getElementById('codigo')?.value,
+                    tipoPessoa: document.querySelector('input[name="fisicaJurid"]:checked')?.value === 'F' ? 'Física' : 'Jurídica',
+                    tipo: document.getElementById('tipo')?.options[document.getElementById('tipo').selectedIndex]?.text,
+                    cnpjcpf: document.getElementById('cnpjcpf')?.value,
+                    nome: document.getElementById('nome')?.value,
+                    nFantasia: document.getElementById('nFantasia')?.value,
+                    unidade: document.getElementById('unidade')?.value,
+                    dtAberInest: document.getElementById('dtAberInest')?.value,
+                    cep: document.getElementById('cep')?.value,
+                    endereco: document.getElementById('endereco')?.value,
+                    numero: document.getElementById('numero')?.value,
+                    bairro: document.getElementById('bairro')?.value,
+                    cdMunicipio: document.getElementById('cdMunicipio')?.value,
+                    municipio: document.getElementById('municipio')?.value,
+                    estado: document.getElementById('estado')?.value,
+                    pais: document.getElementById('pais')?.value,
+                    telefone: document.getElementById('telefone')?.value,
+                    email: document.getElementById('email')?.value,
+                    homePage: document.getElementById('homePage')?.value
+                };
+    
+                showSnackbar('Enviando e-mail...', 'info');
+                submitBtn.disabled = true;
+    
+                emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+                    .then(function (response) {
+                        showSnackbar('E-mail enviado com sucesso!', 'success');
+                        resetForm();
+                    }, function (error) {
+                        showSnackbar('Falha ao enviar e-mail. Por favor, tente novamente.', 'error');
+                        console.error('EmailJS FAILED...', error);
+                    }).finally(function () {
+                        submitBtn.disabled = false;
+                    });
+            }
+    
+            if (submitBtn) {
+                submitBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    sendEmailViaEmailJS();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="
+  font-family: 'Poppins', Arial, sans-serif; 
+  background-color: #f0f5fa;
+  margin: 0; 
+  padding: 30px 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  color: #333;
+">
+  <div style="
+    background-color: #ffffff; 
+    padding: 0;
+    border-radius: 10px; 
+    max-width: 700px; 
+    margin: 0 auto;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid #d1d9e6;
+  ">
+    <!-- Header -->
+    <div style="
+      background: linear-gradient(135deg, #0164d6 50%, #027fe6 100%);
+      padding: 35px 40px;
+      text-align: center;
+      position: relative;
+    ">
+      <div style="
+        position: absolute;
+        top: -30px;
+        right: -30px;
+        width: 80px;
+        height: 80px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 50%;
+      "></div>
+      <div style="
+        position: absolute;
+        bottom: -20px;
+        left: -20px;
+        width: 50px;
+        height: 50px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 50%;
+      "></div>
+      <h2 style="
+        color: #ffffff; 
+        margin: 0;
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: -0.5px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      ">
+        📋 Dados do Cliente Cadastrado
+      </h2>
+      <p style="
+        color: rgba(255,255,255,0.9);
+        margin: 8px 0 0 0;
+        font-size: 16px;
+        font-weight: 400;
+      ">
+        Informações completas do cadastro
+      </p>
+    </div>
+
+    <!-- Content -->
+    <div style="padding: 40px;">
+      <table style="
+        width: 100%; 
+        border-collapse: separate;
+        border-spacing: 0;
+        background: #ffffff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      ">
+        <tbody>
+          <tr style="background: #f8fafc;">
+            <td style="
+              font-weight: 600;
+              padding: 16px 20px;
+              color: #0057b8;
+              border-bottom: 1px solid #d1d9e6;
+              width: 200px;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              border-left: 3px solid #0057b8;
+            ">
+              🏷️ Tipo
+            </td>
+            <td style="
+              padding: 16px 20px;
+              color: #333;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 15px;
+              font-weight: 500;
+            ">
+              {{tipo}}
+            </td>
+          </tr>
+          <tr>
+            <td style="
+              font-weight: 600;
+              padding: 16px 20px;
+              color: #0057b8;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              background: #ffffff;
+              border-left: 3px solid #0057b8;
+            ">
+              👤 Nome
+            </td>
+            <td style="
+              padding: 16px 20px;
+              color: #333;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 15px;
+              font-weight: 500;
+            ">
+              {{nome}}
+            </td>
+          </tr>
+          <tr style="background: #f8fafc;">
+            <td style="
+              font-weight: 600;
+              padding: 16px 20px;
+              color: #0057b8;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              border-left: 3px solid #0057b8;
+            ">
+              🏪 Nome Fantasia
+            </td>
+            <td style="
+              padding: 16px 20px;
+              color: #333;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 15px;
+              font-weight: 500;
+            ">
+              {{nomeFantasia}}
+            </td>
+          </tr>
+          <tr>
+            <td style="
+              font-weight: 600;
+              padding: 16px 20px;
+              color: #0057b8;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              background: #ffffff;
+              border-left: 3px solid #0057b8;
+            ">
+              🏢 Razão Social
+            </td>
+            <td style="
+              padding: 16px 20px;
+              color: #333;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 15px;
+              font-weight: 500;
+            ">
+              {{razao_social}}
+            </td>
+          </tr>
+          <tr style="background: #f8fafc;">
+            <td style="
+              font-weight: 600;
+              padding: 16px 20px;
+              color: #0057b8;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              border-left: 3px solid #0057b8;
+            ">
+              📄 CNPJ/CPF
+            </td>
+            <td style="
+              padding: 16px 20px;
+              color: #333;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 15px;
+              font-weight: 500;
+              font-family: 'Courier New', monospace;
+            ">
+              {{cnpjCpf}}
+            </td>
+          </tr>
+          <tr style="background: #f8fafc;">
+            <td style="
+              font-weight: 600;
+              padding: 16px 20px;
+              color: #0057b8;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              border-left: 3px solid #0057b8;
+            ">
+              🔢 Código do Cliente
+            </td>
+            <td style="
+              padding: 16px 20px;
+              color: #333;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 15px;
+              font-weight: 500;
+              font-family: 'Courier New', monospace;
+            ">
+              {{codCliente}}
+            </td>
+          </tr>
+          <tr>
+            <td style="
+              font-weight: 600;
+              padding: 16px 20px;
+              color: #0057b8;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              background: #ffffff;
+              border-left: 3px solid #0057b8;
+            ">
+              🏬 Unidade/Loja
+            </td>
+            <td style="
+              padding: 16px 20px;
+              color: #333;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 15px;
+              font-weight: 500;
+            ">
+              {{loja}}
+            </td>
+          </tr>
+          <tr style="background: #f8fafc;">
+            <td style="
+              font-weight: 600;
+              padding: 16px 20px;
+              color: #0057b8;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              border-left: 3px solid #0057b8;
+            ">
+              📍 Endereço
+            </td>
+            <td style="
+              padding: 16px 20px;
+              color: #333;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 15px;
+              font-weight: 500;
+            ">
+              {{endereco}}
+            </td>
+          </tr>
+          <tr>
+            <td style="
+              font-weight: 600;
+              padding: 16px 20px;
+              color: #0057b8;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              background: #ffffff;
+              border-left: 3px solid #0057b8;
+            ">
+              🔢 Número
+            </td>
+            <td style="
+              padding: 16px 20px;
+              color: #333;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 15px;
+              font-weight: 500;
+            ">
+              {{numero}}
+            </td>
+          </tr>
+          <tr style="background: #f8fafc;">
+            <td style="
+              font-weight: 600;
+              padding: 16px 20px;
+              color: #0057b8;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              border-left: 3px solid #0057b8;
+            ">
+              🏘️ Bairro
+            </td>
+            <td style="
+              padding: 16px 20px;
+              color: #333;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 15px;
+              font-weight: 500;
+            ">
+              {{bairro}}
+            </td>
+          </tr>
+          <tr>
+            <td style="
+              font-weight: 600;
+              padding: 16px 20px;
+              color: #0057b8;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              background: #ffffff;
+              border-left: 3px solid #0057b8;
+            ">
+              🏙️ Município
+            </td>
+            <td style="
+              padding: 16px 20px;
+              color: #333;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 15px;
+              font-weight: 500;
+            ">
+              {{municipio}}
+            </td>
+          </tr>
+          <tr style="background: #f8fafc;">
+            <td style="
+              font-weight: 600;
+              padding: 16px 20px;
+              color: #0057b8;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              border-left: 3px solid #0057b8;
+            ">
+              🔢 Código Município
+            </td>
+            <td style="
+              padding: 16px 20px;
+              color: #333;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 15px;
+              font-weight: 500;
+              font-family: 'Courier New', monospace;
+            ">
+              {{codMunicipio}}
+            </td>
+          </tr>
+          <tr>
+            <td style="
+              font-weight: 600;
+              padding: 16px 20px;
+              color: #0057b8;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              background: #ffffff;
+              border-left: 3px solid #0057b8;
+            ">
+              🗺️ Estado
+            </td>
+            <td style="
+              padding: 16px 20px;
+              color: #333;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 15px;
+              font-weight: 500;
+            ">
+              {{estado}}
+            </td>
+          </tr>
+          <tr style="background: #f8fafc;">
+            <td style="
+              font-weight: 600;
+              padding: 16px 20px;
+              color: #0057b8;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              border-left: 3px solid #0057b8;
+            ">
+              🌍 País
+            </td>
+            <td style="
+              padding: 16px 20px;
+              color: #333;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 15px;
+              font-weight: 500;
+            ">
+              {{pais}}
+            </td>
+          </tr>
+          <tr>
+            <td style="
+              font-weight: 600;
+              padding: 16px 20px;
+              color: #0057b8;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              background: #ffffff;
+              border-left: 3px solid #0057b8;
+            ">
+              📞 Telefone
+            </td>
+            <td style="
+              padding: 16px 20px;
+              color: #333;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 15px;
+              font-weight: 500;
+              font-family: 'Courier New', monospace;
+            ">
+              {{telefone}}
+            </td>
+          </tr>
+          <tr style="background: #f8fafc;">
+            <td style="
+              font-weight: 600;
+              padding: 16px 20px;
+              color: #0057b8;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              border-left: 3px solid #0057b8;
+            ">
+              📧 E-mail
+            </td>
+            <td style="
+              padding: 16px 20px;
+              color: #0164d6;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 15px;
+              font-weight: 500;
+              text-decoration: underline;
+            ">
+              {{email}}
+            </td>
+          </tr>
+          <tr>
+            <td style="
+              font-weight: 600;
+              padding: 16px 20px;
+              color: #0057b8;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              background: #ffffff;
+              border-left: 3px solid #0057b8;
+            ">
+              👥 Tipo de Pessoa
+            </td>
+            <td style="
+              padding: 16px 20px;
+              color: #333;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 15px;
+              font-weight: 500;
+            ">
+              {{tipoPessoa}}
+            </td>
+          </tr>
+          <tr style="background: #f8fafc;">
+            <td style="
+              font-weight: 600;
+              padding: 16px 20px;
+              color: #0057b8;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              border-left: 3px solid #0057b8;
+            ">
+              🌐 Home Page
+            </td>
+            <td style="
+              padding: 16px 20px;
+              color: #0164d6;
+              border-bottom: 1px solid #d1d9e6;
+              font-size: 15px;
+              font-weight: 500;
+              text-decoration: underline;
+            ">
+              {{homePage}}
+            </td>
+          </tr>
+          <tr>
+            <td style="
+              font-weight: 600;
+              padding: 16px 20px;
+              color: #0057b8;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              background: #ffffff;
+              border-left: 3px solid #0057b8;
+            ">
+              📅 Data de Abertura
+            </td>
+            <td style="
+              padding: 16px 20px;
+              color: #333;
+              font-size: 15px;
+              font-weight: 500;
+            ">
+              {{dataAbertura}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Footer -->
+    <div style="
+      background-color: #f8fafc;
+      padding: 25px 40px;
+      text-align: center;
+      border-top: 1px solid #d1d9e6;
+    ">
+      <p style="
+        margin: 0;
+        color: #0057b8;
+        font-size: 14px;
+        font-weight: 600;
+      ">
+        ✅ Cliente cadastrado com sucesso
+      </p>
+      <div style="
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #d1d9e6;
+      ">
+        <p style="
+          margin: 0;
+          color: #666;
+          font-size: 12px;
+        ">
+          Este email foi gerado automaticamente pelo sistema
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

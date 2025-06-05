@@ -1,0 +1,234 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f5fa;
+    color: #333;
+    min-height: 100vh;
+}
+
+.main-container {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+    background-color: white;
+    border-radius: 0;
+    padding: 25px 35px;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+    padding: 30px;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-header img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+}
+
+.login-header h2 {
+    color: #0057b8;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.login-header p {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.input-group i {
+    position: absolute;
+    left: 14px;
+    top: 13px;
+    color: #6c757d;
+}
+
+.form-control {
+    height: 45px;
+    font-size: 14px;
+    border: 1px solid #d1d9e6;
+    border-radius: 5px;
+    padding: 0.375rem 0.75rem 0.375rem 40px;
+    transition: all 0.2s ease;
+    background-color: #f8fafc;
+}
+
+.form-control:focus {
+    border-color: #0057b8;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(0, 87, 184, 0.1);
+    outline: none;
+}
+
+.btn {
+    padding: 10px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: none;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 45px;
+}
+
+.btn i {
+    font-size: 18px;
+}
+
+.btn-primary {
+    background: linear-gradient(to right, #0057b8, #0072ce);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to right, #004394, #0065b8);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+    color: #6c757d;
+    font-size: 13px;
+}
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #e74c3c;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 12px;
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    font-size: 14px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#snackbar i {
+    margin-right: 8px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#snackbar.success {
+    background-color: #2ecc71;
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+@media (max-width: 992px) {
+    .logo h1 {
+        font-size: 1.3rem;
+    }
+    
+    .container {
+        padding: 15px 20px;
+    }
+    
+    .header-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        padding: 15px;
+    }
+    
+    .login-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo h1 {
+        font-size: 1.1rem;
+    }
+    
+    .logo h1 img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .container {
+        padding: 10px;
+    }
+    
+    .login-card {
+        padding: 15px;
+    }
+    
+    #snackbar {
+        width: 90%;
+        min-width: auto;
+        font-size: 13px;
+        padding: 10px;
+    }
+}

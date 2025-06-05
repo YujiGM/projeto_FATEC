@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cadastro - Alterar Usuário</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/tela_cadastrar_usuario.css">
+    <script src="assets/js/tela_alterar_usuario.js" defer></script>
+</head>
+
+<body>
+    <div class="main-container">
+        <header class="header">
+            <div class="logo">
+                <h1 style="font-weight: bold;"><img src="assets/img/logo.png" alt="Logo Empresa" width="80px"
+                        height="80px">MAICOSOFT > <span>ALTERAR USUÁRIO</span></h1>
+            </div>
+            <div class="header-actions">
+                <button class="header-btn btn-list" id="voltarListaUsuariosBtn"><i class="bi bi-arrow-left"></i>Voltar
+                    para Lista</button>
+            </div>
+        </header>
+
+        <div class="container">
+            <form id="alterarUsuarioForm">
+                <div class="form-section">
+                    <h4 style="color: #0057b8; font-weight: bold; padding-bottom: 20px;">DADOS DO USUÁRIO</h4>
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-2">
+                            <label for="usuarioId" class="form-label">Código</label>
+                            <input type="text" id="usuarioId" name="id" class="form-control" readonly
+                                placeholder="ID do Usuário">
+                        </div>
+                        <div class="col-md-5">
+                            <label for="usuarioNome" class="form-label required">Nome Completo</label>
+                            <input type="text" id="usuarioNome" name="nome" class="form-control"
+                                placeholder="Digite o nome completo" maxlength="100" required>
+                            <div class="invalid-feedback">Por favor, informe o nome.</div>
+                        </div>
+
+                    </div>
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-7">
+                            <label for="usuarioEmail" class="form-label required">E-mail</label>
+                            <input type="email" id="usuarioEmail" name="email" class="form-control"
+                                placeholder="exemplo@email.com" maxlength="100" required>
+                            <div class="invalid-feedback">Por favor, informe um e-mail válido.</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4 style="color: #0057b8; font-weight: bold; padding-bottom: 10px; padding-top: 10px;">ALTERAR
+                        SENHA (Opcional)</h4>
+                    <p class="text-muted small">Deixe os campos de senha em branco se não desejar alterá-la.</p>
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label for="usuarioNovaSenha" class="form-label">Nova Senha</label>
+                            <input type="password" id="usuarioNovaSenha" name="novaSenha" class="form-control"
+                                placeholder="Digite a nova senha" autocomplete="new-password">
+                            <div class="invalid-feedback">A senha deve ter no mínimo 6 caracteres.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="usuarioConfirmaSenha" class="form-label">Confirmar Nova Senha</label>
+                            <input type="password" id="usuarioConfirmaSenha" name="confirmaSenha" class="form-control"
+                                placeholder="Confirme a nova senha" autocomplete="new-password">
+                            <div class="invalid-feedback">As senhas não coincidem.</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-danger" id="cancelarAlteracaoUsuarioBtn" style="margin-bottom: 10px;">
+                        <i class="bi bi-x-circle"></i> Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="salvarAlteracaoUsuarioBtn">
+                        <i class="bi bi-check-circle"></i> Salvar Alterações
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="snackbarUsuarioAlterar"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/tela_alterar_usuario.js"></script>
+</body>
+
+</html>

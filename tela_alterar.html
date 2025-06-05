@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Alteração</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/tela_alterar.css">
+    <script src="assets/js/tela_alterar.js" defer></script>
+</head>
+<body>
+    <div class="main-container">
+        <header class="header">
+            <div class="logo">
+                <h1 style="font-weight: bold;"><img src="assets/img/logo.png" alt="Logo Empresa" width="80px" height="80px">MAICOSOFT > <span>ALTERAÇÃO</span></h1>
+            </div>
+            <div class="header-actions">
+                <button class="header-btn btn-list" id="voltarBtn"><i class="bi bi-arrow-left"></i>Voltar</button>
+            </div>
+        </header>
+
+        <div class="container">
+            <form id="updateForm">
+                <div class="form-section">
+                    <div class="row g-3 mb-3">
+                        <div class="col-6 col-md-2">
+                            <label for="codigo">Código</label>
+                            <input type="text" id="codigo" name="codigo" class="form-control" placeholder="Digite o código" maxlength="5" disabled>
+                        </div>
+
+                        <div class="col-6 col-md-2">
+                            <label>Fisica/Juridica</label>
+                            <div class="radio-toggle">
+                                <input type="radio" id="fisica" name="fisicaJurid" value="F" disabled>
+                                <label for="fisica">Física</label>
+                                <input type="radio" id="juridica" name="fisicaJurid" value="J" disabled>
+                                <label for="juridica">Jurídica</label>
+                            </div>
+                            <input type="hidden" id="fisicaJuridHidden" name="fisicaJuridHidden" value="F">
+                        </div>
+
+                        <div class="col-6 col-md-2" id="tipoContainer">
+                            <label for="tipo">Tipo</label>
+                            <select id="tipo" name="tipo" class="form-select" disabled>
+                                <option value="">Selecione um Tipo</option>
+                                <option value="1">F - Consumidor Final</option>
+                                <option value="2">L - Produtor Rural</option>
+                                <option value="3">R - Revendedor</option>
+                                <option value="4">S - Solidário</option>
+                                <option value="5">X - Exportação</option>
+                            </select>
+                        </div>
+
+                        <div class="col-6 col-md-6" id="cnpjcpfContainer">
+                            <label for="cnpjcpf">CNPJ/CPF</label>
+                            <input type="text" id="cnpjcpf" name="cnpjcpf" class="form-control" placeholder="Digite o CNPJ ou CPF" disabled>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <div class="row g-3 mb-3">
+                        <div class="col-12 col-md-5">
+                            <label for="nome" class="required">Nome</label>
+                            <input type="text" id="nome" name="nome" class="form-control" placeholder="Digite seu nome aqui" maxlength="100" required>
+                            <div class="invalid-feedback">Por favor, informe o nome</div>
+                        </div>
+                        
+                        <div class="col-6 col-md-3">
+                            <label for="nFantasia" class="required">Nome Fantasia</label>
+                            <input type="text" id="nFantasia" name="nFantasia" class="form-control" placeholder="Nome Fantasia" maxlength="100" required>
+                            <div class="invalid-feedback">Por favor, informe o nome fantasia</div>
+                        </div>
+                        
+                        <div class="col-6 col-md-2">
+                            <label for="unidade" class="required">Unidade (Loja)</label>
+                            <input type="text" id="unidade" name="unidade" class="form-control" placeholder="Código da Loja" required>
+                            <div class="invalid-feedback">Por favor, informe a unidade</div>
+                        </div>
+
+                        <div class="col-12 col-md-2">
+                            <label for="dtAberInest" class="required">Data Nasc./Abertura</label>
+                            <div class="input-group">
+                                <input type="text" id="dtAberInest" name="dtAberInest" class="form-control" placeholder="DD/MM/AAAA" required>
+                            </div>
+                            <div class="invalid-feedback">Por favor, informe a data</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <div class="row g-3 mb-3">
+                        <div class="col-6 col-md-2">
+                            <label for="cep" class="required">CEP</label>
+                            <input type="text" id="cep" name="cep" class="form-control" placeholder="00000-000" required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        
+                        <div class="col-12 col-md-5">
+                            <label for="endereco" class="required">Endereço</label>
+                            <input type="text" id="endereco" name="endereco" class="form-control" placeholder="Rua, complemento" maxlength="100" required>
+                            <div class="invalid-feedback">Por favor, informe o endereço</div>
+                        </div>
+                        
+                        <div class="col-6 col-md-2">
+                            <label for="numero">Número</label>
+                            <input type="text" id="numero" name="numero" class="form-control" placeholder="Nº" maxlength="10">
+                        </div>
+                        
+                        <div class="col-12 col-md-3">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" id="bairro" name="bairro" class="form-control" placeholder="Nome do bairro">
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-6 col-md-3">
+                            <label for="cdMunicipio">Código Município</label>
+                            <div class="input-group">
+                                <input type="text" id="cdMunicipio" name="cdMunicipio" class="form-control" placeholder="Código do município">
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-3">
+                            <label for="municipio" class="required">Município</label>
+                            <input type="text" id="municipio" name="municipio" class="form-control" placeholder="Nome da cidade" required>
+                            <div class="invalid-feedback">Por favor, informe o município</div>
+                        </div>
+
+                        <div class="col-6 col-md-3">
+                            <label for="estado" class="required">Estado</label>
+                            <select id="estado" name="estado" class="form-select" required>
+                                <option value="">Selecione</option>
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP">SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                            </select>
+                            <div class="invalid-feedback">Por favor, selecione o estado</div>
+                        </div>
+
+                        <div class="col-6 col-md-3">
+                            <label for="pais">País</label>
+                            <div class="input-group">
+                                <input type="text" id="pais" name="pais" class="form-control" placeholder="Nome do país" value="Brasil">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <div class="row g-3">
+                        <div class="col-12 col-md-4">
+                            <label for="telefone">Telefone</label>
+                            <input type="text" id="telefone" name="telefone" class="form-control" placeholder="(00) 00000-0000">
+                        </div>
+
+                        <div class="col-12 col-md-4">
+                            <label for="email">E-Mail</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="exemplo@email.com">
+                        </div>
+                        
+                        <div class="col-12 col-md-4">
+                            <label for="homePage">Website</label>
+                            <input type="text" id="homePage" name="homePage" class="form-control" placeholder="www.exemplo.com.br">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-danger">
+                        <i class="bi bi-x-circle"></i> Limpar
+                    </button>
+                    <button type="button" class="btn btn-primary" id="updateBtn">
+                        <i class="bi bi-check-circle"></i> Atualizar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div id="snackbar"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
